@@ -2,6 +2,7 @@ import * as axios from "axios"
 import { sortTypes } from "../@types/sortType"
 import { newsApiResponse } from "../@types/newsApiResponse"
 import dotenv from "dotenv"
+import { Colors, EmbedBuilder } from "discord.js"
 
 dotenv.config()
 
@@ -24,4 +25,27 @@ export const fetchNews = async (domains: string[], sortBy: sortTypes) => {
     } else {
         return response.data as newsApiResponse
     }
+}
+
+export const parseNews = (news: newsApiResponse) => {
+    let description = ""
+    let counter = 0
+    for (const article of news.articles) {
+        description += `[${article.title}](${article.url})\n`
+        counter++
+        if (counter >= 30) {
+            break
+        }
+    }
+
+    const embed = new EmbedBuilder()
+        .setTitle("本日のゲームニュース")
+        .setDescription(description)
+        .setTimestamp(new Date())
+        .setColor(Colors.Purple)
+        .setFooter({
+            text: "From Automaton Media",
+        })
+
+    return embed
 }
