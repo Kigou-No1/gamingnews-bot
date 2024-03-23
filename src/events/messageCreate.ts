@@ -2,7 +2,7 @@ import { Message } from "discord.js";
 import { fetchNews, parseNews } from "../utils/fetchNews";
 import { sortTypes } from "../@types/sortType";
 
-const MessageCreate = async (message: Message) => {
+export const MessageCreate = async (message: Message) => {
     if (message.author.bot) return;
     switch (message.content) {
         case "nb!ping":

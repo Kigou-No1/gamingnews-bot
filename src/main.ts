@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import { fetchNews, parseNews } from "./utils/fetchNews"
 import { sortTypes } from "./@types/sortType"
 import { validateEnv } from "./utils/validateEnv"
+import { MessageCreate } from "./events/messageCreate"
 
 dotenv.config()
 
@@ -32,5 +33,7 @@ client.once(Events.ClientReady, async () => {
         }
     }, 60 * 60 * 1000)
 })
+
+client.addListener(Events.MessageCreate, MessageCreate)
 
 client.login(process.env.DISCORD_TOKEN)
