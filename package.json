@@ -7,5 +7,10 @@
   "dependencies": {
     "discord.js": "^14.14.1",
     "dotenv": "^16.4.5"
+  },
+  "scripts": {
+    "start": "node dist/main.js",
+    "compile": "tsc -p .",
+    "test": "ts-node src/main.ts"
   }
 }
