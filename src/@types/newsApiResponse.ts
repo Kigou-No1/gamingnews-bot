@@ -10,10 +10,10 @@ export type newsArticle = {
     urlToImage: string,
     publishedAt: string,
     content: string,
-}
+};
 
 export type newsApiResponse = {
     status: string,
     totalResults: number,
-    articles: newsArticle[]
-}
+    articles: newsArticle[],
+};
