@@ -10,7 +10,7 @@ export const fetchNews = async (domains: string[], sortBy: sortTypes) => {
     const client = axios.default.create({
         baseURL: "https://newsapi.org/v2",
         headers: {
-            "X-Api-Key": process.env.NEWS_API_KEY!,
+            "Authorization": process.env.APIKEY!,
         },
         params: {
             // "q": query,

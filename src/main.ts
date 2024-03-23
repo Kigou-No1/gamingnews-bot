@@ -1,4 +1,4 @@
-import { Client, Colors, EmbedBuilder, Events, IntentsBitField } from "discord.js"
+import { Client, Events, IntentsBitField } from "discord.js"
 import dotenv from "dotenv"
 import { fetchNews, parseNews } from "./utils/fetchNews"
 import { sortTypes } from "./@types/sortType"
@@ -18,6 +18,7 @@ const client = new Client({
     intents: [
         IntentsBitField.Flags.Guilds,
         IntentsBitField.Flags.GuildMessages,
+        IntentsBitField.Flags.MessageContent,
     ]
 })
 
