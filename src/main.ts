@@ -16,6 +16,7 @@ try {
 const client = new Client({
     intents: [
         IntentsBitField.Flags.Guilds,
+        IntentsBitField.Flags.GuildMessages,
     ]
 })
 
